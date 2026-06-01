@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phronix — Focus. Earn. Level up.</title>
+  <link rel="icon" type="image/png" href="phronix.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="phronix.png" alt="Phronix" class="brand-logo">
+      <div><h2 class="brand-name">Phronix</h2><p class="brand-tagline">Focus. <span class="orange">Earn.</span> Level up.</p></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-link active" data-page="home"><span class="nav-icon">&#127968;</span><span class="nav-text">Home</span></a>
+      <a href="#" class="nav-link" data-page="quests"><span class="nav-icon">&#9876;&#65039;</span><span class="nav-text">Quests</span></a>
+      <a href="#" class="nav-link" data-page="timer"><span class="nav-icon">&#9201;&#65039;</span><span class="nav-text">Timer</span></a>
+      <a href="#" class="nav-link" data-page="badges"><span class="nav-icon">&#127941;</span><span class="nav-text">Badges</span></a>
+      <a href="#" class="nav-link" data-page="statistics"><span class="nav-icon">&#128202;</span><span class="nav-text">Statistics</span></a>
+      <a href="#" class="nav-link" data-page="calendar"><span class="nav-icon">&#128197;</span><span class="nav-text">Calendar</span></a>
+      <a href="#" class="nav-link" data-page="forum"><span class="nav-icon">&#128172;</span><span class="nav-text">Forum</span></a>
+      <a href="#" class="nav-link" data-page="motivation"><span class="nav-icon">&#127775;</span><span class="nav-text">Motivation</span></a>
+      <a href="#" class="nav-link" data-page="tutorial"><span class="nav-icon">&#127981;</span><span class="nav-text">Tutorial</span></a>
+      <a href="#" class="nav-link" data-page="settings"><span class="nav-icon">&#9881;&#65039;</span><span class="nav-text">Settings</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+    <a href="#" class="nav-link logout-link" id="logoutBtn"><span class="logout-icon-portal">🚪</span><span class="logout-text">Leave Realm</span></a>
+    </div>
+  </aside>
+  <main class="main-content" id="mainContent">
+    <!-- HOME -->
+    <section class="page" id="page-home">
+	
+      <div class="home-layout">
+        <div class="home-center">
+          <h1 class="greeting" id="greetingText">Good evening &#128075;</h1>
+          <p class="greeting-sub">Let's conquer tasks and earn wisdom.</p>
+          <div class="card rank-card">
+            <div class="rank-left"><span class="rank-badge" id="rankBadge">1</span><div><p class="rank-label">CURRENT RANK</p><h3 class="rank-name" id="rankName">Novice Seeker</h3><p class="rank-xp" id="rankXpText">0 / 100 XP until Level 2</p></div></div>
+            <span class="rank-percent" id="rankPercent">&#9889; 0%</span>
+            <div class="rank-bar"><div class="rank-bar-fill" id="rankBarFill" style="width:0%"></div></div>
+          </div>
+          <div class="summary-row">
+            <div class="card summary-card streak-summary"><div class="summary-icon-wrap"><span class="summary-icon">&#128293;</span></div><div><span class="summary-value" id="homeStreak">0</span> <span class="summary-unit">days</span><p class="summary-label orange">STUDY STREAK</p></div></div>
+            <div class="card summary-card"><p class="summary-header">&#128202; SESSION SUMMARY</p><div class="summary-detail"><span>Focus Time</span><span id="homeFocusTime">0h 0m</span></div><div class="summary-detail"><span>Quests Done</span><span id="homeQuestsDone">0</span></div><div class="summary-detail"><span>XP Earned</span><span class="orange" id="homeXpEarned">0</span></div></div>
+            <div class="card summary-card"><p class="summary-header">&#10024; ACHIEVEMENTS</p><p class="summary-sub" id="homeAchievText">No badges yet</p><p class="summary-detail-sm">Complete quests to earn!</p><p class="summary-detail-sm" id="homeUnlocked">0 / 20 unlocked</p><div class="mini-bar"><div class="mini-bar-fill" id="homeAchievBar" style="width:0%"></div></div></div>
+          </div>
+          <div class="home-two-col">
+            <div class="card daily-card"><h3>&#10024; Daily Activities</h3><div class="daily-header"><span id="dailyDone">0/7 done</span><span class="orange" id="dailyXp">&#9889; 0 XP tracked</span></div><div id="dailyList" class="daily-list"></div></div>
+            <div class="card quests-preview-card"><div class="quests-preview-header"><h3>&#9889; Active Quests</h3><a href="#" class="orange view-all-link" data-page="quests">VIEW ALL &#8250;</a></div><div id="homeQuestList" class="home-quest-list"></div></div>
+          </div>
+        </div>
+        <div class="home-right">
+          <div class="profile-card"><div class="profile-avatar-wrap"><div class="profile-avatar" id="profileAvatar">U</div></div><h3 class="profile-display-name" id="profileName">U</h3><p class="profile-rank" id="profileRank">NOVICE SEEKER</p><span class="profile-level-badge" id="profileLevel">LEVEL 1</span><div class="profile-stats"><div><span class="stat-icon">&#9889;</span><strong id="profTotalXp">0</strong><small>TOTAL XP</small></div><div><span class="stat-icon">&#128293;</span><strong id="profStreak">0</strong><small>DAY STREAK</small></div><div><span class="stat-icon">&#127941;</span><strong id="profBadges">0</strong><small>BADGES</small></div></div></div>
+          <div class="card weekly-progress-card"><div class="wp-header"><h4>Weekly Progress</h4><span id="wpXp">0 / 2,000 XP</span></div><div class="wp-chart" id="wpChart"></div></div>
+          <div class="card recent-activity-card"><h4>RECENT ACTIVITY</h4><div id="recentActivity" class="recent-list"></div></div>
+          <div class="card leaderboard-card"><h4>LEADERBOARD</h4><div id="leaderboard" class="leaderboard-list"></div></div>
+        </div>
+      </div>
+    </section>
+    <!-- QUESTS -->
+    <section class="page hidden" id="page-quests">
+      <div class="page-header"><span class="page-icon">&#9876;&#65039;</span><div><h1>Quests</h1><p class="page-sub">Conquer tasks. Earn wisdom.</p></div></div>
+      <div class="card quests-summary-card"><div><p class="qs-label">ACTIVE QUESTS</p><h2 id="activeQuestCount">0</h2></div><div class="qs-right"><p class="qs-label">AVAILABLE XP</p><h2 class="orange">&#9889; <span id="availableXp">0</span></h2></div></div>
+      <div class="quest-tabs"><button class="qtab" data-filter="all">ALL</button><button class="qtab active" data-filter="active">ACTIVE</button><button class="qtab" data-filter="completed">COMPLETED</button></div>
+      <div id="questList" class="quest-list"></div>
+    </section>
+    <!-- TIMER -->
+    <section class="page hidden" id="page-timer">
+      <div class="page-header"><span class="page-icon">&#9201;&#65039;</span><div><h1>Study Timer</h1><p class="page-sub">Focus. Earn. Level up.</p></div></div>
+      <div class="card session-reward-banner"><span>&#9889; Session Reward</span><span class="orange" id="sessionRewardXp">+50 XP</span></div>
+      <div class="timer-area">
+        <div class="timer-circle"><svg viewBox="0 0 200 200" class="timer-svg"><circle cx="100" cy="100" r="90" class="timer-track"/><circle cx="100" cy="100" r="90" class="timer-progress" id="timerProgress"/></svg><div class="timer-display"><span class="timer-time" id="timerDisplay">25:00</span><span class="timer-status" id="timerStatus">READY</span></div></div>
+        <div class="timer-controls"><button class="timer-btn" id="resetTimerBtn">&#128260;</button><button class="timer-btn play-btn" id="playTimerBtn">&#9654;</button></div>
+        <p class="session-length-label">SESSION LENGTH</p>
+        <div class="session-btns"><button class="session-btn active" data-min="25">25 min</button><button class="session-btn" data-min="50">50 min</button><button class="session-btn" data-min="90">90 min</button></div>
+        <input type="number" class="custom-min-input" id="customMin" placeholder="Custom minutes (max 180 mins)" min="1" max="180">
+      </div>
+    </section>
+    <!-- BADGES -->
+<section class="page hidden" id="page-badges">
+  <div class="page-header"><span class="page-icon">&#127941;</span><div><h1>Achievements</h1><p class="page-sub" id="badgeCountText">0 of 20 unlocked</p></div></div>
+  
+  <div class="badge-section-header"><span class="locked-bar"></span><span>Locked</span><span class="badge-count-pill" id="lockedCount">20</span></div>
+  
+  <div class="badge-grid" id="badgeGrid"></div>
+</section>
+    <!-- STATISTICS -->
+    <section class="page hidden" id="page-statistics">
+      <div class="page-header"><span class="page-icon">&#128202;</span><div><h1>Statistics</h1><p class="page-sub">Your progress at a glance.</p></div></div>
+      <div class="stats-grid"><div class="card stat-card"><span class="stat-icon-lg">&#9889;</span><p class="stat-label">TOTAL XP</p><h2 id="statTotalXp">0</h2></div><div class="card stat-card"><span class="stat-icon-lg">&#128293;</span><p class="stat-label">BEST STREAK</p><h2 id="statBestStreak">0d</h2></div><div class="card stat-card"><span class="stat-icon-lg">&#127919;</span><p class="stat-label">QUESTS DONE</p><h2 id="statQuestsDone">0</h2></div><div class="card stat-card"><span class="stat-icon-lg">&#128336;</span><p class="stat-label">FOCUS TIME</p><h2 id="statFocusTime">0h 0m</h2></div></div>
+      <div class="card weekly-xp-card"><div class="wxp-header"><h3>Weekly XP</h3><span id="wxpTotal">0 XP this week</span></div><div class="wxp-chart" id="wxpChart"></div></div>
+    </section>
+    <!-- CALENDAR -->
+    <section class="page hidden" id="page-calendar">
+      <div class="page-header"><span class="page-icon">&#128197;</span><div><h1>Calendar</h1><p class="page-sub">Track your quest deadlines.</p></div></div>
+      <div class="card calendar-card"><div class="cal-nav"><button id="calPrev">&#8249;</button><h3 id="calTitle">May 2026</h3><button id="calNext">&#8250;</button></div><div class="cal-grid"><span class="cal-day-header">Mon</span><span class="cal-day-header">Tue</span><span class="cal-day-header">Wed</span><span class="cal-day-header">Thu</span><span class="cal-day-header">Fri</span><span class="cal-day-header sat">Sat</span><span class="cal-day-header sun">Sun</span></div><div id="calDays" class="cal-days"></div></div>
+      <div class="card upcoming-card"><h3>Upcoming Deadlines</h3><div id="upcomingList" class="upcoming-list"></div></div>
+    </section>
+    <!-- FORUM -->
+    <section class="page hidden" id="page-forum">
+      <div class="page-header"><span class="page-icon">&#128172;</span><div><h1>Forum</h1><p class="page-sub">Ask, discuss, and learn together.</p></div></div>
+      <div class="forum-toolbar">
+        <div class="forum-search-wrap"><span class="forum-search-icon">&#128269;</span><input type="text" id="forumSearch" class="forum-search-input" placeholder="Search threads…"></div>
+        <div class="forum-filter-tabs">
+          <button class="forum-tab active" data-filter="all">All</button>
+          <button class="forum-tab" data-filter="open">Open</button>
+          <button class="forum-tab" data-filter="answered">Answered</button>
+          <button class="forum-tab" data-filter="pinned">Pinned</button>
+        </div>
+        <button class="btn-primary forum-new-btn" id="forumNewBtn">&#10010; New Thread</button>
+      </div>
+      <div id="forumList" class="forum-list"></div>
+      <!-- Thread View Panel -->
+      <div id="forumThreadPanel" class="forum-thread-panel hidden">
+        <div class="forum-thread-header">
+          <button class="forum-back-btn" id="forumBackBtn">&#8592; Back to Forum</button>
+          <div class="forum-thread-meta" id="forumThreadMeta"></div>
+        </div>
+        <div id="forumThreadBody" class="forum-thread-body"></div>
+        <div class="forum-reply-box">
+          <div class="forum-reply-role-row">
+            <span class="forum-reply-label">Replying as:</span>
+            <span class="forum-reply-as-badge">🎓 Student</span>
+          </div>
+          <textarea id="forumReplyText" class="forum-reply-textarea" placeholder="Write your reply…" rows="3"></textarea>
+          <button class="btn-primary forum-reply-submit" id="forumReplyBtn">&#9658; Post Reply</button>
+        </div>
+      </div>
+      <!-- New Thread Modal -->
+      <div id="forumNewModal" class="forum-modal-overlay hidden">
+        <div class="forum-modal-card">
+          <div class="forum-modal-header"><h3>&#128172; New Thread</h3><button class="forum-modal-close" id="forumModalClose">&#10005;</button></div>
+          <label class="field-label">SUBJECT / TOPIC <span style="color:var(--orange)">*</span></label>
+          <input type="text" id="forumNewTitle" class="settings-input" placeholder="e.g. How do I solve quadratic equations?">
+          <label class="field-label" style="margin-top:12px">CATEGORY</label>
+          <select id="forumNewCategory" class="settings-input forum-cat-select">
+            <option>📘 General</option>
+            <option>📐 Mathematics</option>
+            <option>🔬 Science</option>
+            <option>📖 English</option>
+            <option>🇵🇭 Filipino</option>
+            <option>📜 History</option>
+            <option>🏃 Physical Education</option>
+            <option>❓ Help & Questions</option>
+          </select>
+          <label class="field-label" style="margin-top:12px">MESSAGE <span style="color:var(--orange)">*</span></label>
+          <textarea id="forumNewBody" class="settings-input" rows="5" placeholder="Describe your question or topic in detail…"></textarea>
+          <div class="forum-modal-actions">
+            <button class="btn-outline" id="forumModalCancel">Cancel</button>
+            <button class="btn-primary" id="forumModalSubmit">&#128228; Post Thread</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- MOTIVATION -->
+    <section class="page hidden" id="page-motivation">
+      <div class="page-header"><span class="page-icon">&#127775;</span><div><h1>Motivation</h1><p class="page-sub">Your daily spark to keep going.</p></div></div>
+      <div id="motivDailyCard" class="motiv-daily-card card"></div>
+      <div class="motiv-section-label">&#128218; Quote Library</div>
+      <div id="motivCatCards" class="motiv-cat-cards-grid"></div>
+      <!-- Category Drill-Down Panel -->
+      <div id="motivCatPanel" class="hidden">
+        <div class="motiv-cat-panel-header">
+          <button class="forum-back-btn" id="motivBackBtn">&#8592; Back to Library</button>
+          <span id="motivCatPanelTitle" class="motiv-cat-panel-title"></span>
+        </div>
+        <div id="motivCatQuoteList" class="motiv-quote-list"></div>
+      </div>
+    </section>
+    <!-- TUTORIAL -->
+    <section class="page hidden" id="page-tutorial">
+      <div class="page-header"><span class="page-icon">&#127981;</span><div><h1>Tutorial</h1><p class="page-sub">Learn how to use Phronix.</p></div></div>
+      <div class="tutorial-progress-bar-wrap"><div class="tutorial-progress-track"><div class="tutorial-progress-fill" id="tutProgressFill" style="width:0%"></div></div><span class="tutorial-progress-label" id="tutProgressLabel">Step 1 of 8</span></div>
+      <div class="tutorial-steps" id="tutorialSteps"></div>
+      <div class="tutorial-nav-row"><button class="btn-outline" id="tutPrevBtn">&#8592; Previous</button><button class="btn-primary" id="tutNextBtn">Next &#8594;</button></div>
+    </section>
+    <!-- SETTINGS -->
+
+    <section class="page hidden" id="page-settings">
+      <div class="page-header"><span class="page-icon">&#9881;&#65039;</span><div><h1>Settings</h1><p class="page-sub">Manage your preferences.</p></div></div>
+      <div class="card settings-section"><h4 class="settings-label">ACCOUNT</h4><div class="account-row"><div class="settings-avatar" id="settingsAvatar">U</div><div><h3 id="settingsFullName">User</h3><p class="small-text" id="settingsEmail">user@email.com</p><a href="#" class="orange small-text">&#128279; Change avatar</a></div></div></div>
+      <div class="card settings-section"><h4 class="settings-label">PROFILE</h4><label class="field-label">DISPLAY NAME <span class="hint">(shown in "Good morning, __")</span></label><input type="text" class="settings-input" id="displayNameInput"><label class="field-label">USERNAME / INITIALS <span class="hint">(shown on profile card)</span></label><input type="text" class="settings-input" id="initialsInput" maxlength="4"><button class="btn-primary btn-full" id="saveProfileBtn">&#128190; Save Profile Changes</button></div>
+      <div class="card settings-section"><h4 class="settings-label">PREFERENCES</h4><div class="pref-row"><div class="pref-info"><span class="pref-icon">&#128276;</span><div><strong>Notifications</strong><p class="small-text">Quest reminders & streak alerts</p></div></div><label class="toggle"><input type="checkbox" id="notifToggle" checked><span class="slider"></span></label></div><div class="pref-row"><div class="pref-info"><span class="pref-icon">&#128266;</span><div><strong>Sound Effects</strong><p class="small-text">XP gain & completion sounds</p></div></div><label class="toggle"><input type="checkbox" id="soundToggle" checked><span class="slider"></span></label></div></div>
+      <div class="card settings-section" id="themeSection"><h4 class="settings-label">&#127912; THEME</h4><p class="small-text" style="margin-bottom:14px;color:var(--text-dim)">Customize the look and feel of Phronix.</p><div class="theme-options" id="themeOptions"><button class="theme-btn" data-theme="default"><span class="theme-preview default-preview"></span><span class="theme-label">&#x1F311; Default</span><span class="theme-sub">Dark + Neon Orange</span></button><button class="theme-btn" data-theme="light"><span class="theme-preview light-preview"></span><span class="theme-label">&#x2600;&#xFE0F; Light</span><span class="theme-sub">Clean & Bright</span></button><button class="theme-btn" data-theme="cyberpunk"><span class="theme-preview cyberpunk-preview"></span><span class="theme-label">&#x26A1; Cyberpunk</span><span class="theme-sub">Green & Black Neon</span></button><button class="theme-btn" data-theme="crimson"><span class="theme-preview crimson-preview"></span><span class="theme-label">&#x1F534; Crimson</span><span class="theme-sub">Red & Gold</span></button></div></div>
+      <div class="card settings-section"><h4 class="settings-label">ABOUT</h4><div class="about-row"><img src="phronix.png" alt="Phronix" style="width:24px;height:24px;"><div><strong>Phronix</strong><p class="small-text">Developed by RK Mendoza</p></div></div></div>
+      <button class="btn-outline btn-full" id="settingsLogoutBtn">&#8617;&#65039; Logout</button>
+    </section>
+  </main>
+  <!-- QUEST DETAIL MODAL -->
+  <div class="modal-overlay hidden" id="questModal"><div class="modal-content"><div class="modal-header"><div class="modal-title-row"><span class="modal-dot">&#9679;</span><div><h3 id="modalTitle">Quest</h3><div class="modal-meta"><span class="difficulty-badge" id="modalDiff">MEDIUM</span><span class="orange" id="modalXp">&#9889; 150 XP</span></div></div></div><button class="modal-close" id="modalClose">&#10005;</button></div><div class="modal-body"><div class="modal-progress-row"><span>PROGRESS</span><span class="orange" id="modalPercent">0%</span></div><div class="progress-bar"><div class="progress-fill" id="modalProgressBar"></div></div><label class="field-label">QUEST NOTES</label><textarea class="settings-input quest-notes" id="modalNotes" rows="3"></textarea><label class="field-label" id="checklistLabel">CHECKLIST (0/0)</label><div id="modalChecklist" class="modal-checklist"></div><button class="btn-primary btn-full" id="modalSaveBtn">&#128190; Save Progress (0%)</button><button class="btn-outline btn-full" id="modalCompleteBtn">&#10003; Mark as Complete — +0 XP</button></div></div></div>
+
+  <script src="app.js"></script>
+  
+<script>
+  /* ── AUTH CHECK ── */
+  if (!localStorage.getItem('phronix_logged_in')) {
+    window.location.href = 'login.html';
+  }
+
+  /* ══════════════════════════════════════════════
+     TUTORIAL — fully self-contained
+  ══════════════════════════════════════════════ */
+  var TUT_STEPS = [
+    {
+      icon: '🏠',
+      title: 'Welcome to Phronix!',
+      subtitle: 'Your Gamified Study Companion',
+      content: 'Phronix turns your academic life into an RPG adventure. You earn XP, level up your rank, and unlock badges by completing real schoolwork. The more you study, the stronger your scholar becomes. This tutorial walks you through every feature so you can hit the ground running.',
+      tip: '💡 Tip: You can revisit this tutorial anytime by clicking Tutorial in the sidebar.',
+      goto: null
+    },
+    {
+      icon: '⚔️',
+      title: 'Quests — Your Subjects',
+      subtitle: 'Conquer tasks. Earn wisdom.',
+      content: 'The Quests tab is your mission board. Each school subject is a Quest — English, Science, Math, PE, Filipino, and History. Click any quest card to open its detail panel where you\'ll find a full checklist of activities, quizzes, and exams. Check off each item as you complete it and watch your progress bar grow. When everything is done, mark the quest complete to claim your XP reward!',
+      tip: '💡 Tip: Harder quests (HARD difficulty) give more XP. Tackle them for maximum gains!',
+      goto: 'quests'
+    },
+    {
+      icon: '⏱️',
+      title: 'Study Timer — Focus Mode',
+      subtitle: 'Focus. Earn. Level up.',
+      content: 'The Study Timer rewards you just for sitting down and studying. Choose a session length — 25, 50, or 90 minutes — or type a custom duration. Hit the play button and focus on your work. When the timer completes, XP is automatically added to your account. Longer sessions earn more XP. You can reset or pause anytime.',
+      tip: '💡 Tip: The 25-minute Pomodoro technique is scientifically proven to boost focus. Try it!',
+      goto: 'timer'
+    },
+    {
+      icon: '🏆',
+      title: 'Badges — Achievements',
+      subtitle: 'Unlock rewards for your milestones',
+      content: 'The Badges page tracks all 20 achievements you can unlock. Badges are earned for things like maintaining a 7-day study streak, earning 500 XP, completing 10 focus sessions, studying 10 total hours, and reaching higher ranks. Locked badges show you exactly what you need to earn them — use them as goals to chase!',
+      tip: '💡 Tip: The "First Flame" badge unlocks after completing your first quest. Go get it!',
+      goto: 'badges'
+    },
+    {
+      icon: '📊',
+      title: 'Statistics & Calendar',
+      subtitle: 'Your progress, crystal clear',
+      content: 'The Statistics page shows your lifetime numbers — total XP earned, best study streak, quests completed, and total focus hours — plus a bar chart of XP earned each day this week. The Calendar page plots quest deadlines on a monthly calendar so you can plan ahead and never miss a due date. Upcoming deadlines are listed below the calendar in order.',
+      tip: '💡 Tip: Visit Statistics weekly to see your growth — watching those bars rise is motivating!',
+      goto: 'statistics'
+    },
+    {
+      icon: '📅',
+      title: 'Daily Activities',
+      subtitle: 'Small tasks, daily XP',
+      content: 'On the Home page you\'ll see a Daily Activities panel with 7 small tasks to complete each day — things like studying for 30 minutes, reviewing your quest notes, or checking upcoming deadlines. Completing these earns bonus XP on top of everything else and helps build your study streak. The panel resets every midnight with fresh activities.',
+      tip: '💡 Tip: Completing all 7 daily activities every day is the fastest way to build a long streak!',
+      goto: 'home'
+    },
+    {
+      icon: '📈',
+      title: 'Ranks & Leveling Up',
+      subtitle: 'Climb from Novice to Apex Scholar',
+      content: 'Every XP you earn pushes your Level and Rank higher. You start as a Novice Seeker and climb through Apprentice, Scholar, Sage, Master, Grandmaster, Legend, Mythic, Transcendent, and finally Apex Scholar. Each level-up triggers a special celebration animation. Your rank and level are displayed on your profile card on the Home page.',
+      tip: '💡 Tip: Your level badge and rank name are always shown on the Home screen — keep them climbing!',
+      goto: 'home'
+    },
+    {
+      icon: '💬',
+      title: 'Forum — Ask & Discuss',
+      subtitle: 'Connect with classmates and teachers',
+      content: 'The Forum is your class discussion board. Post threads to ask questions, share tips, or start a discussion about any subject. Every post and reply is tagged as either a 🎓 Student or 👨‍🏫 Teacher so you always know who is answering. Threads can be filtered by All, Open, Answered, or Pinned. Teachers can pin important announcements so they stay at the top. Click any thread to read the full conversation and post your own reply.',
+      tip: '💡 Tip: If your question gets a teacher reply, the thread is marked Answered — check those first!',
+      goto: 'forum'
+    },
+    {
+      icon: '🌟',
+      title: 'Motivation — Daily Quotes',
+      subtitle: 'A fresh spark of inspiration every day',
+      content: 'The Motivation page shows you a new inspirational quote every day chosen from a curated library of quotes about learning, perseverance, and growth. The daily quote is highlighted at the top in a glowing card so it greets you the moment you open the page. Below it is the full Quote Library where you can browse all quotes by category — Wisdom, Perseverance, Growth, and more — for whenever you need an extra boost.',
+      tip: '💡 Tip: Start your study session by visiting the Motivation page — it only takes a second and sets a great mindset!',
+      goto: 'motivation'
+    },
+    {
+      icon: '🎉',
+      title: "You're All Set, Scholar!",
+      subtitle: 'Your journey begins now',
+      content: 'You now know everything about Phronix! Go complete your first Quest, run a Study Timer session, and check off your Daily Activities. Every action earns XP and brings you closer to Apex Scholar. Remember: consistency beats intensity — even 25 minutes a day adds up to something incredible. Good luck on your journey!',
+      tip: '💡 Tip: Start with the Quests tab and check off your first completed activity. Your adventure begins!',
+      goto: null
+    }
+  ];
+
+  var _tutStep = 0;
+
+  function _renderTut() {
+    var total = TUT_STEPS.length;
+    var s = TUT_STEPS[_tutStep];
+    var container = document.getElementById('tutorialSteps');
+    if (!container) return;
+
+    // Progress
+    var pct = ((_tutStep + 1) / total) * 100;
+    var fillEl = document.getElementById('tutProgressFill');
+    var labelEl = document.getElementById('tutProgressLabel');
+    if (fillEl) fillEl.style.width = pct + '%';
+    if (labelEl) labelEl.textContent = 'Step ' + (_tutStep + 1) + ' of ' + total;
+
+    // Build sidebar list items
+    var listHtml = '';
+    for (var i = 0; i < TUT_STEPS.length; i++) {
+      var done = i < _tutStep;
+      var active = i === _tutStep;
+      var cls = 'tut-list-item' + (active ? ' tut-list-active' : '') + (done ? ' tut-list-done' : '');
+      listHtml += '<div class="' + cls + '" data-tidx="' + i + '">'
+        + '<span class="tut-list-num">' + (done ? '✓' : (i+1)) + '</span>'
+        + '<span class="tut-list-title">' + TUT_STEPS[i].title + '</span>'
+        + '</div>';
+    }
+
+    // Goto button
+    var gotoHtml = s.goto
+      ? '<button class="tut-goto-btn" onclick="nav(\'' + s.goto + '\')">👉 Go to ' + s.goto.charAt(0).toUpperCase() + s.goto.slice(1) + '</button>'
+      : '';
+
+    container.innerHTML =
+      '<div class="tut-layout">'
+      + '<div class="tut-sidebar-list">' + listHtml + '</div>'
+      + '<div class="tut-main-card card">'
+      +   '<div class="tut-card-icon">' + s.icon + '</div>'
+      +   '<div class="tut-card-step-label">Step ' + (_tutStep+1) + ' of ' + total + '</div>'
+      +   '<h2 class="tut-card-title">' + s.title + '</h2>'
+      +   '<p class="tut-card-subtitle">' + s.subtitle + '</p>'
+      +   '<p class="tut-card-content">' + s.content + '</p>'
+      +   '<div class="tut-card-tip">' + s.tip + '</div>'
+      +   gotoHtml
+      + '</div>'
+      + '</div>';
+
+    // Wire sidebar list clicks
+    var items = container.querySelectorAll('.tut-list-item');
+    for (var j = 0; j < items.length; j++) {
+      (function(el) {
+        el.addEventListener('click', function() {
+          _tutStep = parseInt(el.getAttribute('data-tidx'));
+          localStorage.setItem('phronix_tutStep', _tutStep);
+          _renderTut();
+        });
+      })(items[j]);
+    }
+
+    // Prev button
+    var prevBtn = document.getElementById('tutPrevBtn');
+    if (prevBtn) {
+      prevBtn.disabled = _tutStep === 0;
+      prevBtn.style.opacity = _tutStep === 0 ? '0.4' : '1';
+      prevBtn.onclick = function() {
+        if (_tutStep > 0) { _tutStep--; localStorage.setItem('phronix_tutStep', _tutStep); _renderTut(); }
+      };
+    }
+
+    // Next button
+    var nextBtn = document.getElementById('tutNextBtn');
+    if (nextBtn) {
+      if (_tutStep === total - 1) {
+        nextBtn.textContent = '🏠 Start Your Journey';
+        nextBtn.onclick = function() {
+          localStorage.setItem('phronix_tutStep', '0');
+          localStorage.setItem('phronix_tut_done', 'true');
+          _applyNavLock();
+
+          // Grant First Flame XP only once
+          if (!localStorage.getItem('phronix_popup_cleared')) {
+            profile.totalXp = (profile.totalXp || 0) + 50;
+            profile.level = getLvl(profile.totalXp).level;
+            var dn = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()];
+            if (weeklyXp && weeklyXp[dn] !== undefined) weeklyXp[dn] += 50;
+            recent.unshift({ text: 'Journey Begun!', sub: 'Unlocked First Flame achievement', xp: 50 });
+            save('profile', profile);
+            save('weeklyXp', weeklyXp);
+            save('recent', recent);
+            localStorage.setItem('phronix_popup_cleared', 'true');
+          }
+
+          // Navigate to home first, then show the celebration on top
+          nav('home');
+          triggerFlameCelebration();
+        };
+      } else {
+        nextBtn.textContent = 'Next →';
+        nextBtn.onclick = function() { _tutStep++; localStorage.setItem('phronix_tutStep', _tutStep); _renderTut(); };
+      }
+    }
+  }
+
+  // ── Tutorial lock helpers ──
+  function _isTutDone() {
+    return localStorage.getItem('phronix_tut_done') === 'true';
+  }
+  function _showTutLockToast() {
+    // Remove existing toast if any
+    var old = document.getElementById('tut-lock-toast');
+    if (old) old.remove();
+    var toast = document.createElement('div');
+    toast.id = 'tut-lock-toast';
+    toast.style.cssText = [
+      'position:fixed','bottom:28px','left:50%','transform:translateX(-50%)',
+      'background:var(--bg-card)','border:1px solid var(--orange)',
+      'color:var(--text)','font-size:13px','font-weight:600',
+      'padding:12px 22px','border-radius:10px','z-index:9999',
+      'box-shadow:0 4px 24px rgba(255,140,0,0.25)',
+      'display:flex','align-items:center','gap:10px',
+      'animation:fadeIn .2s ease'
+    ].join(';');
+    toast.innerHTML = '<span style="font-size:18px">🔒</span> Complete the tutorial first to unlock all features!';
+    document.body.appendChild(toast);
+    setTimeout(function() { if (toast.parentNode) toast.remove(); }, 2800);
+  }
+
+  // Override nav to hook tutorial render + enforce lock
+  var _origNav = nav;
+  nav = function(p) {
+    // Block navigation to other pages until tutorial is finished
+    if (!_isTutDone() && p !== 'tutorial') {
+      _showTutLockToast();
+      // Still show tutorial page
+      _origNav('tutorial');
+      _tutStep = parseInt(localStorage.getItem('phronix_tutStep') || '0');
+      if (_tutStep >= TUT_STEPS.length) _tutStep = 0;
+      _renderTut();
+      return;
+    }
+    _origNav(p);
+    if (p === 'tutorial') {
+      _tutStep = parseInt(localStorage.getItem('phronix_tutStep') || '0');
+      if (_tutStep >= TUT_STEPS.length) _tutStep = 0;
+      _renderTut();
+    }
+  };
+
+  // Re-wire sidebar nav links to use overridden nav + apply lock visuals
+  function _applyNavLock() {
+    var done = _isTutDone();
+    document.querySelectorAll('.nav-link[data-page]').forEach(function(l) {
+      var page = l.dataset.page;
+      l.onclick = function(e) { e.preventDefault(); nav(page); };
+      if (!done && page !== 'tutorial') {
+        l.setAttribute('title', 'Complete the tutorial to unlock');
+        l.style.opacity = '0.45';
+        // Add lock icon if not already there
+        if (!l.querySelector('.nav-lock')) {
+          var lock = document.createElement('span');
+          lock.className = 'nav-lock';
+          lock.textContent = '🔒';
+          lock.style.cssText = 'font-size:10px;margin-left:auto;opacity:0.7';
+          l.appendChild(lock);
+        }
+      } else {
+        l.removeAttribute('title');
+        l.style.opacity = '';
+        var lk = l.querySelector('.nav-lock');
+        if (lk) lk.remove();
+      }
+    });
+  }
+  _applyNavLock();
+  // Re-apply after app.js finishes its synchronous setup
+  setTimeout(_applyNavLock, 50);
+
+  document.querySelectorAll('.view-all-link[data-page]').forEach(function(l) {
+    l.onclick = function(e) { e.preventDefault(); nav(l.dataset.page); };
+  });
+
+  /* ══════════════════════════════════════════════
+     THEME — fully self-contained, inline onclick
+  ══════════════════════════════════════════════ */
+  var THEME_VARS = {
+    'default': {
+      '--bg':'#060914','--bg-card':'#0b1126','--bg-card-alt':'#0f1729',
+      '--border':'#1a2440','--border-light':'#2d3d66',
+      '--orange':'#ff8c00','--orange-dim':'rgba(255,140,0,.15)','--orange-glow':'rgba(255,140,0,.35)',
+      '--text':'#f0f4f8','--text-dim':'#8fa0c4','--text-muted':'#4a5568',
+      '--green':'#22c55e','--red':'#ef4444','--yellow':'#eab308',
+      '_body':'#060914'
+    },
+    'light': {
+      '--bg':'#f0f2f8','--bg-card':'#ffffff','--bg-card-alt':'#e6eaf4',
+      '--border':'#cdd4e8','--border-light':'#b5c0d8',
+      '--orange':'#c85a00','--orange-dim':'rgba(200,90,0,.12)','--orange-glow':'rgba(200,90,0,.22)',
+      '--text':'#0f172a','--text-dim':'#334155','--text-muted':'#94a3b8',
+      '--green':'#16a34a','--red':'#dc2626','--yellow':'#b45309',
+      '_body':'#f0f2f8'
+    },
+    'cyberpunk': {
+      '--bg':'#020b02','--bg-card':'#051005','--bg-card-alt':'#081808',
+      '--border':'#0c2a0c','--border-light':'#164516',
+      '--orange':'#00ff41','--orange-dim':'rgba(0,255,65,.10)','--orange-glow':'rgba(0,255,65,.25)',
+      '--text':'#c0ffc0','--text-dim':'#3dba3d','--text-muted':'#1e4a1e',
+      '--green':'#00ff41','--red':'#ff003c','--yellow':'#ffe600',
+      '_body':'#020b02'
+    },
+    'crimson': {
+      '--bg':'#0d0404','--bg-card':'#160606','--bg-card-alt':'#1c0808',
+      '--border':'#2e0a0a','--border-light':'#4a1010',
+      '--orange':'#d4a017','--orange-dim':'rgba(212,160,23,.12)','--orange-glow':'rgba(212,160,23,.30)',
+      '--text':'#f8eaea','--text-dim':'#b07070','--text-muted':'#5c2a2a',
+      '--green':'#22c55e','--red':'#ff4444','--yellow':'#d4a017',
+      '_body':'#0d0404'
+    }
+  };
+
+  function _applyTheme(name) {
+    var t = THEME_VARS[name] || THEME_VARS['default'];
+    var root = document.documentElement;
+    for (var k in t) {
+      if (k.charAt(0) === '-') root.style.setProperty(k, t[k]);
+    }
+    // Set data-theme on <html> so CSS [data-theme] selectors work
+    root.setAttribute('data-theme', name);
+    document.body.style.backgroundColor = t['_body'];
+    var sb = document.getElementById('sidebar');
+    if (sb) sb.style.backgroundColor = t['_body'];
+    var bg = document.getElementById('interactive-bg');
+    if (bg) { bg.style.background = t['_body']; bg.style.backgroundColor = t['_body']; }
+    localStorage.setItem('phronix_theme', name);
+    document.querySelectorAll('.theme-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-theme') === name);
+    });
+  }
+
+  // Wire theme buttons with direct onclick — runs after DOM ready
+  function _wireTheme() {
+    document.querySelectorAll('.theme-btn').forEach(function(btn) {
+      btn.onclick = function() { _applyTheme(btn.getAttribute('data-theme')); };
+    });
+    var saved = localStorage.getItem('phronix_theme') || 'default';
+    _applyTheme(saved);
+  }
+
+  // Apply on load + every time settings opens
+  _wireTheme();
+  document.querySelectorAll('.nav-link[data-page="settings"]').forEach(function(l) {
+    l.addEventListener('click', function() { setTimeout(_wireTheme, 60); });
+  });
+
+  /* ── Auto-launch tutorial on first login ── */
+  if (localStorage.getItem('phronix_show_tutorial') === 'true') {
+    localStorage.removeItem('phronix_show_tutorial');
+    setTimeout(function() { nav('tutorial'); _applyNavLock(); }, 100);
+  }
+</script>
+
+  
+  
+  
+</body>
+</html>
